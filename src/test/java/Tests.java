@@ -11,8 +11,9 @@ public class Tests
   }
 
   @Test
-  public void test()
+  public void testAspect()
   {
-    logger.info("This is just a simple test...");
+    System.out.println("remember to start jvm with -javaagent:pathto/aspectjweaver.jar");
+    System.out.println("this print will be aspected");
   }
 }
