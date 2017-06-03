@@ -1,2 +1,2 @@
-# simpleAspectJ
-A simple Gradle/Eclipse project, demonstrating a single aspect
+# starterGradleEclipse
+A starter project with a single test, buildable by Gradle and Eclipse
