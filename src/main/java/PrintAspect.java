@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -25,5 +26,15 @@ public class PrintAspect
     stackTraceStream.forEach(frame -> {
       System.out.println("stack: " + frame);
     });
+  }
+  
+  @Before("call(* print*(..)) && !cflow(this(PrintAspect))")
+  /* cflow is a way to protect against recursion */
+  public void print(JoinPoint jp)
+  {
+    System.out.print("before print: " + jp.getSignature());
+    if (jp.getThis() != null)
+      System.out.print(", this: " + jp.getThis().getClass());
+    System.out.println();
   }
 }

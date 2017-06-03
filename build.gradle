@@ -22,4 +22,5 @@ tasks.withType(Test) {
   outputs.upToDateWhen {false}
   testLogging.showStandardStreams = true
   testLogging.exceptionFormat = 'full'
+  jvmArgs += '-javaagent:D:/lang/java/aspectj/aspectjweaver.jar'
 }
